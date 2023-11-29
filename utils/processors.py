@@ -13,6 +13,9 @@ USD_TO_VND = 24000
 
 
 class PageProcessor():
+    """
+    Processor class for job listing pages.
+    """
     def generate_page_urls(self, 
         url: str, 
         recursive: bool = False

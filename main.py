@@ -40,6 +40,8 @@ def main():
             cur.execute(q, job_item)
     except pg.errors.Error as e:
         print(e)
+    except Exception as e:
+        print(e)
     finally:
         cur.close()
         conn.close()
