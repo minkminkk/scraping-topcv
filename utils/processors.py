@@ -150,7 +150,7 @@ class _NormalJobProcessor(JobProcessor):
     """
     @override
     def process_job(self, url: str):
-        # Send requests and define necessary tags
+        # Send request, instantiate BS object and define necessary tags
         response = send_request("get", url)
         soup = BeautifulSoup(response.content, "html.parser")
         detail_tags = soup.find_all("div", 
@@ -202,11 +202,11 @@ class _BrandJobProcessor(JobProcessor):
     """
     @override
     def process_job(self, url: str):
-        # Send requests and parse tags
+        # Send request, instantiate BS object
         response = send_request("get", url)
         soup = BeautifulSoup(response.content, "html.parser")
         
-        # Recognize template
+        # Recognize template and select appropriate strategy
         if soup.find("div", id = "premium-job"):
             job_item = self._process_job_premium(soup, url)
         else:
