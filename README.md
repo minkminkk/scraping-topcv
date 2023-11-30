@@ -9,7 +9,6 @@ At the time I worked on the project, the website has some following properties:
 - The job posting sites can come with a variety of templates (3 at the time).
 
 Data crawled from each job posting include:
-
 - `job_id`: Job posting ID, as stored in their server backend.
 - `job_title`: Job title.
 - `company`: Recruiter company.
@@ -19,7 +18,9 @@ Data crawled from each job posting include:
 - `due_date`: Deadline for application.
 - `jd`: Job description.
 
-Moreover, each entry in the PostgreSQL database also has timestamps at which it was created and most recently modified (in GMT+07 timezone).
+Moreover, each entry in the PostgreSQL database also has:
+- `created_at`: Timestamp at which the record was created (in GMT+07).
+- `last_modified`: Timestamp of most recent modification to record  (in GMT+07).
 
 ## Required programs
 
