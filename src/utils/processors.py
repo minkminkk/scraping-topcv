@@ -39,7 +39,7 @@ class PageProcessor():
                 do something 
         """
         # Send requests and parse job details page and gather job data
-        print("Now parsing", url)
+        print("Scraping job URLs at", url)
         response = send_request("get", url)
         soup = BeautifulSoup(response.content, "html.parser")
         jobs_in_page = soup.find_all("div", "job-item-2")
@@ -80,6 +80,8 @@ class JobProcessor():
         Usage: To scrape a job detail page onto job_item:
             job_item = Processor().process_job(<job_detail_url>)
         """
+        print("Scraping job info at", url)
+
         # Parse URL and get keyword
         keyword = url.strip("https://www.").split("/")[1]
         keyword_map = {

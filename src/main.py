@@ -10,12 +10,15 @@ def main():
     
     try:
         # Connect to PostgreSQL database
-        conn = pg.connect(dbname = "topcv", user = "postgres", password = "postgres")
+        conn = pg.connect(
+            dbname = "topcv", 
+            user = "postgres", 
+            password = "postgres", 
+            host = "db",
+            port = 5432
+        )
         cur = conn.cursor()
         conn.autocommit = True
-        script = open("init.sql", "r")
-
-        cur.execute(script.read())
 
         # Crawl each job detail page into PostgreSQL DB
         job_processor = JobProcessor()
@@ -45,7 +48,6 @@ def main():
     finally:
         cur.close()
         conn.close()
-        script.close()
     
 
 if __name__ == "__main__":

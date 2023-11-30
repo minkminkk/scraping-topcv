@@ -31,19 +31,15 @@ def send_request(
     """
     response = requests.request(method, url, headers = headers)
 
-    # Status code handling
-    if response.status_code != 200:
-        # Retry only if request rate limited
-        if response.status_code == 429:
-            if retries <= 0:
-                raise Exception("Too many requests \
-sent to server. Try again later. (Status code 429)")
-            
-            print("Request rate limited. Sending another request" \
-                + f"in {retry_delay} seconds.")
-            sleep(retry_delay)
-            send_request(method, url, headers, retries - 1, retry_delay)
-        else:
-            response.raise_for_status()
+    # Retry if request rate limit detected
+    if response.status_code == 429:
+        if retries <= 0:
+            raise Exception("Too many requests sent to server. Try again later.")
+        
+        print(f"Request rate limited. Retrying in {retry_delay} seconds.")
+        sleep(retry_delay)
+        send_request(method, url, headers, retries - 1, retry_delay)
+    else:
+        response.raise_for_status() # Raise HTTPError if any
 
     return response
