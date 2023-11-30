@@ -12,6 +12,8 @@ Details about each job posting include:
 - `due_date`: Deadline for application.
 - `jd`: Job description.
 
+Moreover, each entry in the PostgreSQL database also has timestamps at which it was created and most recently modified (in GMT+07 timezone).
+
 ## Required programs
 
 - `git`.
