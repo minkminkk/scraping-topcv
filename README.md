@@ -1,6 +1,6 @@
 # scraping-topcv
 
-This is a mini project which aims to crawl basic info about newest IT jobs on TopCV, one of the most known job posting website in Vietnam. The crawled data will be imported into PostgreSQL database.
+This is a mini project which aims to crawl basic info about newest IT jobs on [TopCV](https://www.topcv.vn/viec-lam-it). The crawled data will be imported into PostgreSQL database.
 
 Details about each job posting include:
 - `job_id`: Job posting ID, as stored in their server backend.
