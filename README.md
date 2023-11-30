@@ -45,6 +45,9 @@ docker compose down
 
 The containers and network will be deleted.
 
+## Note
+
+The crawler is **not yet** able to crawl the whole data as TopCV limits the request rate. In the future, crawling using rotating proxies could be implemented to overcome this.
 
 ## License
 
