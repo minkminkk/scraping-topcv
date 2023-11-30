@@ -1,8 +1,9 @@
 services:
   crawler:
-    container_name: scraper
+    container_name: topcv-scraper
     build:
       context: .
+    image: topcv-scraper
     volumes:
       - ./src:/crawler
     depends_on:
@@ -17,6 +18,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: topcv
+      TZ: "Asia/Ho_Chi_Minh"
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "postgres" ]
       interval: 5s
