@@ -4,10 +4,6 @@ This is a mini project which aims to crawl basic info about newest IT jobs on [T
 
 ## About the project
 
-At the time I worked on the project, the website has some following properties:
-- Website is not dynamically generated (i.e. no need for headless browsers such as Selenium).
-- The job posting sites can come with a variety of templates (3 at the time).
-
 Data crawled from each job posting include:
 - `job_id`: Job posting ID, as stored in their server backend.
 - `job_title`: Job title.
